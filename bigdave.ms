@@ -24,7 +24,7 @@ fn grabVerts =
     for i = 1 to numVerts do
     (
         
-        if allVPos[i][3] >= topMargin do
+        if allVPos[i][3] >= topMargin then
         (
             append upperVerts allVPos[i]
             append upperVertsIndex i
@@ -35,12 +35,9 @@ fn grabVerts =
     (
         for j = 1 to topVerts.count do
         (
-            if i == j do
-            (
-                continue
-            )
+            if i == j then continue
             -- If vert I and J are on top of each other in the XZ plane (unlikely)
-            if upperVerts[i][1] == upperVerts[j][1] and upperVerts[i][2] == upperVerts[j][2] do
+            if upperVerts[i][1] == upperVerts[j][1] and upperVerts[i][2] == upperVerts[j][2] then
             (
                 --Keep the higher one
                 if upperVerts[i][3] > upperVerts[j][3] then append delIndices j else append delIndices i
